@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export BACKUP_SYSINFO_PATH=/backup/backups/sysinfo
+
+if [ -e $BACKUP_SYSINFO_PATH ];
+then
+date > "$BACKUP_SYSINFO_PATH/date.txt"
+pacman -Qqe > "$BACKUP_SYSINFO_PATH/pkg_list.txt"
+lsmod > "$BACKUP_SYSINFO_PATH/modules.txt"
+lsblk > "$BACKUP_SYSINFO_PATH/devices.txt"
+fi
+   

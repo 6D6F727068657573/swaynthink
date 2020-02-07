@@ -1,0 +1,1 @@
+backup_sd      UUID=XXXXXXXXX    /path/to/keyfile  nofail,key-slot=1

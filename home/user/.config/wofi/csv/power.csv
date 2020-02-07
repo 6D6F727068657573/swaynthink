@@ -1,0 +1,5 @@
+             Power Off,"systemctl poweroff"
+             Suspend,"systemctl suspend"
+             Reboot,"systemctl reboot"
+>>             Lock,swaylock
+>>             Logout,"swaymsg exit"

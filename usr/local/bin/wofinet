@@ -1,0 +1,2 @@
+#! /bin/bash
+netctl list | wofi --dmenu | head -n 1 | xargs -i --no-run-if-empty netctl start "{}"

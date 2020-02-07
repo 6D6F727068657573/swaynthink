@@ -1,0 +1,6 @@
+[Unit]
+Description=Write system information to backup drive.
+RequiresMountsFor=/backup
+
+[Service]
+ExecStart=/usr/local/bin/sysinfo.sh

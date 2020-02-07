@@ -1,0 +1,9 @@
+[Unit]
+Description=Schedule system information backup.
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=basic.target

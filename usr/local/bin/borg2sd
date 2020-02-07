@@ -1,0 +1,36 @@
+#!/bin/bash
+
+export BORG_REPO=/backup/backups/borg
+
+borg create                         \
+    --verbose                       \
+    --filter AME                    \
+    --list                          \
+    --stats                         \
+    --show-rc                       \
+    --compression lz4               \
+    --exclude-caches                \
+    --exclude '/home/*/.cache'      \
+    --exclude '/home/*/.mozilla'    \
+    --exclude '/home/*/Downloads'   \
+    --exclude '/home/*/Videos'      \
+    --exclude '/home/*/Images'      \
+                                    \
+   ::'{hostname}-{now}'             \
+    /etc                            \
+    /home/		            \
+
+create_exit=$?
+
+borg prune                          \
+    --list                          \
+    --prefix '{hostname}-'          \
+    --show-rc                       \
+    --keep-daily    7               \
+    --keep-weekly   4               \
+    --keep-monthly  6               \
+
+prune_exit=$?
+
+exit $(( create_exit > prune_exit ? create_exit : prune_exit ))
+

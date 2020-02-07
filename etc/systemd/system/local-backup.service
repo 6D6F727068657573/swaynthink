@@ -1,0 +1,12 @@
+[Unit]
+Description=Manage the creation and pruning of backups to local sd.
+RequiresMountsFor=/backup
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+ExecStop=/usr/local/bin/borg2sd
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+# /dev/mapper/volgroup0-lv_root
+UUID=XXXXXXXX	/         	f2fs      	rw,noatime,lazytime,background_gc=on,discard,no_heap,inline_xattr,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=posix	0 0
+
+# /dev/sda2
+UUID=XXXXXXXX	/boot     	ext2      	rw,noatime,stripe=4,nodev,nosuid,noexec	0 2
+
+# /dev/mapper/volgroup0-lv_home
+UUID=XXXXXXXX	/home     	f2fs      	rw,noatime,lazytime,background_gc=on,discard,no_heap,inline_xattr,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=posix,nodev,nosuid,noexec	0 0
+
+# /swapfile
+/swapfile 					none 		swap 		defaults 0 0
+
+# /backup
+/dev/mapper/backup_sd        			/backup   	f2fs        	rw,nofail,nodev,nosuid,noexec        0 2
