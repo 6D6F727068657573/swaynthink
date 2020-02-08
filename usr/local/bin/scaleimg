@@ -13,4 +13,4 @@ image_path="$1"
 extension="${image_path##*.}"
 scaled_image_path="${image_path%.*}.scaled.$extension"
 
-convert $image_path -resize "$limit@" $scaled_image_path
+convert $image_path -strip -quality 80 -resize "$limit@" $scaled_image_path
