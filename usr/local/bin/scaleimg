@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PIXEL_LIMIT[0]=1440000 # 1200x1200
+PIXEL_LIMIT[1]=1000000 # 1000x1000
+PIXEL_LIMIT[2]=720000  #   800x800
+PIXEL_LIMIT[3]=360000  #   600x600
+PIXEL_LIMIT[4]=16000   #   400x400
+PIXEL_LIMIT[5]=9000    #   300x300
+
+limit=${PIXEL_LIMIT[$2-1]}
+
+image_path="$1"
+extension="${image_path##*.}"
+scaled_image_path="${image_path%.*}.scaled.$extension"
+
+convert $image_path -resize "$limit@" $scaled_image_path
